@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Underscore JS Templating Demo</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- CSS styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="css/starter-template.css" rel="stylesheet">
+</head>
+
+<body>
+	<div id="header"></div>
+	<div id="body"></div>
+	<div id="footer"></div>
+</body>
+
+<script src="lib/jquery-1.9.0.min.js"></script>
+<script src="lib/underscore-min.js"></script>
+<script src="lib/backbone-min.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+<script src="lib/utils.js"></script>
+<script>
+	$(document).ready(function() {
+		
+		//Header
+		getTemplate('templates/header.html', function(template) {
+		$('#header').html(template);
+		
+		//Home page
+		$("#home").on("click",function(){
+			getTemplate('templates/home.html', function(template) {$('#body').html(template);});
+		});
+		
+		//About page
+		$("#about").on("click",function(){
+			getTemplate('templates/about.html', function(template) {$('#body').html(template);});
+		});
+		
+		//Contact page
+		$("#contact").on("click",function(){
+			getTemplate('templates/contact.html', function(template) {$('#body').html(template);});
+		});			
+		});	
+	});
+</script>
+</html>
